@@ -57,6 +57,7 @@
 		}
 
         public function run($config) {
+            $this->bindParam();
             $this->_route->run($this, $config);
         }
 

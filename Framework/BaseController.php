@@ -37,6 +37,7 @@
 		
 		public function bindManager() {
 			foreach($this->_httpRequest->getRoute()->getManager() as $manager) {
+				var_dump($manager);
 				$this->$manager = new $manager($this->_config->database);
 			}
 		}

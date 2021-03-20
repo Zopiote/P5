@@ -1,9 +1,9 @@
 <?php
 
-	class ErrorController {
+	class ErrorController extends BaseController {
 
 		public function Show($exception) {
-			$this->addParam($exception);
+			$this->addParam("exception", $exception);
 			$this->view("error");
 		}
 	}

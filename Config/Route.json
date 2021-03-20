@@ -8,7 +8,7 @@
 },
 {
 	"path" : "/Login",
-	"controller" : "Home",
+	"controller" : "User",
 	"action" : "Login",
 	"method" : "GET",
 	"param" : [],
@@ -16,7 +16,7 @@
 },
 {
 	"path" : "/Login",
-	"controller" : "Home",
+	"controller" : "User",
 	"action" : "Authenticate",
 	"method" : "POST",
 	"param" : [
@@ -24,7 +24,7 @@
 		"password"
 	],
 	"manager": [
-		"User"	
+		"UserManager"	
 	]
 },
 {

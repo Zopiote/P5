@@ -14,7 +14,7 @@
 	{
 		$httpRequest = new HttpRequest();
         $router = new Router();
-        $httpRequest->setRoute($router->findRoute($httpRequest,$config->basepath));
+        $httpRequest->setRoute($router->findRoute($httpRequest, $config->basepath));
         $httpRequest->run($config);
 	}catch(Exception $e) {
         $httpRequest = new HttpRequest("/Error", "GET");
