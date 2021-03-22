@@ -48,7 +48,6 @@
           if(class_exists($controllerName)) {
               $controller = new $controllerName($httpRequest, $config);
               if(method_exists($controller, $this->_action)) {
-                  var_dump($httpRequest->getparam());
                   $controller->{$this->_action}(...$httpRequest->getParam());
               }else {
                   throw new ActionNotFoundException();

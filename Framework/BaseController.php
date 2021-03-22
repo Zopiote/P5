@@ -9,7 +9,7 @@
 		
 		public function __construct($httpRequest, $config) {
 			$this->_httpRequest = $httpRequest;
-			$this->_config = $httpRequest;
+			$this->_config = $config;
 			$this->_param = array();
 			$this->addParam("httprequest", $this->_httpRequest);
 			$this->addParam("config", $this->_config);

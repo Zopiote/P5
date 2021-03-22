@@ -1,4 +1,136 @@
 body {
-    width: 100%;
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    color: #293241;
     height: 100vh;
 }
+
+/* LOGIN/SIGNIN */
+
+.login__container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}
+.login__form {
+    background-color: #3D5A80;
+    padding: 15px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+}
+.form__title {
+    text-align: center;
+    color: #E0FBFC;
+    margin: 5px;
+}
+.form__control {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.form__label {
+    color: #E0FBFC;
+}
+.form__input {
+    padding: 10px 0;
+    background-color: #E0FBFC;
+    border: none;
+    width: 100%;
+    color: #293241;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+/* BUTTON */
+
+.btn {
+    border: none;
+    width: 100%;
+    color: #E0FBFC;
+    padding: 5px;
+    max-width: 125px;
+    border-radius: 10px;
+    font-family: 'Oswald', sans-serif;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: #EE6C4D;
+}
+.btn-primary:hover {
+    background-color: darken(#EE6C4D, 50%);
+}
+
+/* HEADER */
+
+#header {
+    background-color: #3D5A80;
+    padding: 5px;
+    box-shadow: 0 3px 3px 0px rgba(0,0,0,0.75);
+}
+.nav__container {
+    width: 100%;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.menu__link {
+    list-style-type: none;
+    margin: 0 10px;
+}
+.menu__link > a {
+    color: #E0FBFC;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.menu__link > a:hover {
+    color: #EE6C4D;
+}
+
+/* PAGE */
+
+.page {
+    padding: 10px 25px;
+    width: calc(100% - 50px);
+}
+.page__title {
+    text-align: center;
+    margin: 10px;
+    
+}
+
+/* SECTION ACCUEIL */
+
+.image__profil {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.title__profil {
+    text-align: center;
+    margin: 5px 0;
+}
+.title__profil > span {
+    color: #EE6C4D;
+}
+.text__profil {
+    text-align: center;
+    margin: 0;
+}
+
+/* FOOTER */
+
+

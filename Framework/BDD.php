@@ -5,7 +5,7 @@
 		private $_bdd;
 		private static $_instance;
 		
-		public static function getInstance() {
+		public static function getInstance($datasource) {
 			if(empty(self::$_instance)) {
 				self::$_instance = new BDD($datasource);
 			}

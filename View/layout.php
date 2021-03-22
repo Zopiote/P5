@@ -4,12 +4,27 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Titre de la page</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap" rel="stylesheet">
 		<link href="Css/style.css" rel="stylesheet">
 	</head>
 
 	<body>
+		<header id="header">
+			<nav class="nav__container">
+				<ul class="menu">
+					<li class="menu__link"><a href="/">Accueil</a></li>
+					<li class="menu__link"><a>Blogs</a></li>
+					<li class="menu__link"><a href="/Login">Connexion</a></li>
+					<li class="menu__link"><a>Inscription</a></li>
+				</ul>
+			</nav>
+		</header>
+
 		<?= $content; ?>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+		<footer id="footer">
+
+		</footer>
 	</body>
 </html>
