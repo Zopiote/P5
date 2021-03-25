@@ -3,8 +3,8 @@
 	class User {
         
 		private $id;
-		private $mail;
-		private $password;
+		public $email;
+		public $password;
 		
 		public function __construct() {
 			

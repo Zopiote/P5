@@ -28,6 +28,36 @@
 	]
 },
 {
+	"path" : "/Registration",
+	"controller" : "User",
+	"action" : "Registration",
+	"method" : "GET",
+	"param" : [],
+	"manager": []
+},
+{
+	"path" : "/Registration",
+	"controller" : "User",
+	"action" : "RegistrationInBdd",
+	"method" : "POST",
+	"param" : [
+		"pseudo",
+		"login",
+		"password"
+	],
+	"manager": [
+		"UserManager"
+	]
+},
+{
+	"path" : "/Logout",
+	"controller" : "User",
+	"action" : "Logout",
+	"method" : "GET",
+	"param" : [],
+	"manager": []
+},
+{
 	"path" : "/Error",
 	"controller" : "Error",
 	"action" : "Show",

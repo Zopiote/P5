@@ -1,3 +1,12 @@
+<?php
+	if(isset($_SESSION['Connected'])) {
+		$linkLogin = '<a href="/Logout">Deconnexion</a>';
+	} 
+	else {
+		$linkLogin = '<a href="/Login">Connexion </a>/<a href="/Registration"> Inscription</a>';
+	} 
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -14,9 +23,8 @@
 			<nav class="nav__container">
 				<ul class="menu">
 					<li class="menu__link"><a href="/">Accueil</a></li>
-					<li class="menu__link"><a>Blogs</a></li>
-					<li class="menu__link"><a href="/Login">Connexion</a></li>
-					<li class="menu__link"><a>Inscription</a></li>
+					<li class="menu__link"><a>Articles</a></li>
+					<li class="menu__link"><?php if(isset($linkLogin)) echo $linkLogin ?></li>
 				</ul>
 			</nav>
 		</header>

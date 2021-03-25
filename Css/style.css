@@ -85,6 +85,8 @@ body {
 .menu__link {
     list-style-type: none;
     margin: 0 10px;
+    color: #E0FBFC;
+    font-size: 20px;
 }
 .menu__link > a {
     color: #E0FBFC;
