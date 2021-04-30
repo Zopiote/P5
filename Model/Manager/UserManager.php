@@ -13,18 +13,18 @@
 			return $req->fetch();
 		}
 
-		public function setUser($pseudo, $password, $login) {
+		public function addUser($pseudo, $password, $login) {
 			$roles = "['ROLE_USER']";
-			$valid = false;
-
-			$req = $this->_bdd->prepare('INSERT INTO user (pseudo, password, email, roles, valid) VALUES (?, ?, ?, ?, ?)');
-
-			$req->bindParam(1, $pseudo);
-			$req->bindParam(2, $password);
-			$req->bindParam(3, $login);
-			$req->bindParam(4, $roles);
-			$req->bindParam(5, $valid);
+			$valid = 0;
 			
-			return $req;
+			$req = $this->_bdd->prepare('INSERT INTO user (pseudo, password, email, roles, valid) VALUES (:pseudo, :password, :email, :roles, :valid)');
+
+			$req->bindParam(':pseudo', $pseudo);
+			$req->bindParam(':password', $password);
+			$req->bindParam(':email', $login);
+			$req->bindParam(':roles', $roles);
+			$req->bindParam(':valid', $valid);
+
+			$req->execute();
 		}
 	}

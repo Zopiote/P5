@@ -6,25 +6,54 @@
 			$this->View("login");
 		}
 		
-		public function Authenticate($login, $password) {
+		public function Authenticate() {
+			$login = $this->_httpRequest->getRequest()["login"];
+			$password = $this->_httpRequest->getRequest()["password"];
 			$user = $this->UserManager->getByMail($login);
 
-			if($user->password == $password) {
+			if(password_verify($password, $user->password)) {
 				$_SESSION['Connected'] = $user->email;
 				header("Location: /");
 				exit();
 			}else {
-				var_dump('incorrect');
+				header("Location: /Login");
 			}
 		}
 
 		public function Registration() {
-			$this->View("registration");
-		}
+			$form = new Form();
+			$form->add('pseudo', "Pseudo", [
+				function($value) {
+					return [
+						"assertion" => $value !== "",
+						"message" => "Votre champ ne doit pas êtres vide." 
+					];
+			}]);
+			$form->add('email', "Adresse Email", [
+				function($value) {
+					return [
+						"assertion" => $value !== "",
+						"message" => "Votre champ ne doit pas êtres vide." 
+					];
+				},
+				function($value) {
+					return [
+						"assertion" => filter_var($value, FILTER_VALIDATE_EMAIL) == true,
+						"message" => "Votre email n'est pas valide."
+					];
+				}
+			]);
+			$form->add('password', "Mot de passe");
+			$form->handle($this->_httpRequest);
+			if($form->isSubmitted() && $form->isValid()) {
+				$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+				$this->UserManager->addUser($_POST['pseudo'], $passwordHash, $_POST['email']);
+				header("Location: /Login");
+				exit();
+			}
 
-		public function RegistrationInBdd($pseudo, $password, $login) {
-			$this->UserManager->setUser($pseudo, $password, $login);
-			var_dump($this->UserManager->setUser($pseudo, $password, $login));
+			$this->addParam("form", $form);
+			$this->View("registration");
 		}
 
 		public function Logout() {

@@ -19,10 +19,7 @@
 	"controller" : "User",
 	"action" : "Authenticate",
 	"method" : "POST",
-	"param" : [
-		"login",
-		"password"
-	],
+	"param" : [],
 	"manager": [
 		"UserManager"	
 	]
@@ -38,13 +35,9 @@
 {
 	"path" : "/Registration",
 	"controller" : "User",
-	"action" : "RegistrationInBdd",
+	"action" : "Registration",
 	"method" : "POST",
-	"param" : [
-		"pseudo",
-		"login",
-		"password"
-	],
+	"param" : [],
 	"manager": [
 		"UserManager"
 	]

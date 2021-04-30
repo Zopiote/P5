@@ -6,11 +6,13 @@
         private $_method;
         private $_param;
 		private $_route;
+		private $_request = [];
 
         public function __construct($url = null, $method = null) {
             $this->_url = (is_null($url))?$_SERVER['REQUEST_URI']:$url;
 			$this->_method = (is_null($method))?$_SERVER['REQUEST_METHOD']:$method;
 			$this->_param = array();
+			$this->_request = $_POST;
         }
 
         public function getUrl() {
@@ -29,6 +31,10 @@
           $this->_route = $route;	
         }
 
+        public function getRequest() {
+            return $this->_request;	
+        }
+
         public function bindParam() {
 			switch($this->_method) {
 				case "GET":
@@ -36,13 +42,6 @@
                     foreach($this->_route->getParam() as $param) {
 						if(isset($_GET[$param])) {
 							$this->_param[] = $_GET[$param];
-						}
-					}
-                case "POST":
-                case "PUT":
-                    foreach($this->_route->getParam() as $param) {
-						if(isset($_POST[$param])) {
-							$this->_param[] = $_POST[$param];
 						}
 					}
 			}

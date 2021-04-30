@@ -2,7 +2,7 @@
 
 	class BaseController {
 
-		private $_httpRequest;
+		protected $_httpRequest;
 		private $_param;
 		private $_config;
 		
