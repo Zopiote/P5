@@ -9,6 +9,6 @@
         public function getPosts() {
 			$req = $this->_bdd->prepare("SELECT * FROM post");
 			$req->execute();
-			return $req->fetchAll(PDO::FETCH_CLASS, Post::class);
+			return $req->fetchAll(PDO::FETCH_CLASS, 'Post');
 		}
 	}

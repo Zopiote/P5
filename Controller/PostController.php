@@ -4,10 +4,13 @@
 		
         public function ListPost() {
 			$posts = $this->PostManager->getPosts();
-			var_dump($posts);
             
 			$this->addParam("posts", $posts);
 			$this->View("listpost");
         }
+
+		public function Post($id) {
+			var_dump($id);
+		}
 
 	}

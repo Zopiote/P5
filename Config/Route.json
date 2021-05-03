@@ -13,7 +13,20 @@
 	"method" : "GET",
 	"param" : [],
 	"manager": [
-		"PostManager"]
+		"PostManager"
+	]
+},
+{
+	"path" : "/post",
+	"controller" : "Post",
+	"action" : "Post",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"PostManager"
+	]
 },
 {
 	"path" : "/Login",

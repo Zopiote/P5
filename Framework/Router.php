@@ -11,6 +11,8 @@
 		
 		public function findRoute($httpRequest, $basepath) {
 			$url = str_replace($basepath, "", $httpRequest->getUrl());
+			$url = substr($url, 0, strpos($url, "?"));
+			var_dump($url);
 			$method = $httpRequest->getMethod();
 			$routeFound = array_filter($this->listRoute, function($route) use ($url, $method){
 				return preg_match("#^" . $route->path . "$#", $url) && $route->method == $method;

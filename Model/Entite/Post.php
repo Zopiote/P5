@@ -20,7 +20,7 @@
 			return $this->title;
 		}
 
-		public function setTitle(string $nom) {
+		public function setTitle($title) {
 			$this->title = $title;
 
 			return $this;
@@ -30,7 +30,7 @@
 			return $this->chapo;
 		}
 
-		public function setChapo(string $chapo) {
+		public function setChapo($chapo) {
 			$this->chapo = $chapo;
 
 			return $this;
@@ -40,7 +40,7 @@
 			return $this->content;
 		}
 
-		public function setContent(string $content) {
+		public function setContent($content) {
 			$this->content = $content;
 
 			return $this;

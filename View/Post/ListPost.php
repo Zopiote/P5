@@ -7,7 +7,7 @@
                 <p class="card-title"><?= $post->getTitle() ?></p>
                 <p class="card-chapo"><?= $post->getChapo() ?></p>
                 <p class="card-date">Dernière modification: <span><?= $post->getLastModificationDate() ?></span></p>
-                <a href="/post/<?= $post->getId() ?>" class="btn btn-primary">Lire +</a>
+                <a href="/post?id=<?= $post->getId() ?>" class="btn btn-primary">Lire +</a>
             </div>
         <?php } ?>
     </div>
