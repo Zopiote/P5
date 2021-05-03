@@ -1,0 +1,158 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    color: #293241;
+    height: 100vh;
+    background-color: #eeeeee;
+}
+
+/* LOGIN/SIGNIN */
+
+.login__container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}
+.login__form {
+    background-color: #222831;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+}
+.form__title {
+    text-align: center;
+    color: #eeeeee;
+    margin: 5px;
+}
+.form__control {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.form__label {
+    color: #eeeeee;
+    margin-top: 5px;
+}
+.form__input {
+    padding: 10px 0;
+    background-color: #E0FBFC;
+    border: none;
+    width: 100%;
+    color: #393e46;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+/* BUTTON */
+
+.btn {
+    border: none;
+    width: 100%;
+    color: #393e46;
+    padding: 5px;
+    max-width: 125px;
+    border-radius: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all .2s;
+}
+.btn-primary {
+    background-color: #ffd369;
+}
+.btn-primary:hover {
+    background-color: #ffc02e;
+}
+
+/* ALERT */
+
+.alert {
+    width: 100%;
+    border-radius: 5px;
+    color: #eeeeee;
+    font-size: 15px;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.alert-danger {
+    background-color: #751700;
+}
+
+/* HEADER */
+
+#header {
+    background-color: #222831;
+    padding: 5px;
+    box-shadow: 0 1px 3px 0px rgba(0,0,0,0.75);
+}
+.nav__container {
+    width: 100%;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.menu__link {
+    list-style-type: none;
+    margin: 0 10px;
+    color: #eeeeee;
+    font-size: 20px;
+}
+.menu__link > a {
+    color: #eeeeee;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.menu__link > a:hover {
+    color: #ffd369;
+}
+
+/* PAGE */
+
+.page {
+    padding: 10px 25px;
+    width: calc(100% - 50px);
+}
+.page__title {
+    text-align: center;
+    margin: 10px;
+    
+}
+
+/* SECTION ACCUEIL */
+
+.image__profil {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.title__profil {
+    text-align: center;
+    margin: 5px 0;
+}
+.title__profil > span {
+    color: #EE6C4D;
+}
+.text__profil {
+    text-align: center;
+    margin: 0;
+}
+
+/* FOOTER */
+
+

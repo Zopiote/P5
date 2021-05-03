@@ -1,0 +1,60 @@
+[{
+	"path" : "/",
+	"controller" : "Home",
+	"action" : "Home",
+	"method" : "GET",
+	"param" : [],
+	"manager": []
+},
+{
+	"path" : "/Login",
+	"controller" : "User",
+	"action" : "Login",
+	"method" : "GET",
+	"param" : [],
+	"manager": []
+},
+{
+	"path" : "/Login",
+	"controller" : "User",
+	"action" : "Authenticate",
+	"method" : "POST",
+	"param" : [],
+	"manager": [
+		"UserManager"	
+	]
+},
+{
+	"path" : "/Registration",
+	"controller" : "User",
+	"action" : "Registration",
+	"method" : "GET",
+	"param" : [],
+	"manager": []
+},
+{
+	"path" : "/Registration",
+	"controller" : "User",
+	"action" : "Registration",
+	"method" : "POST",
+	"param" : [],
+	"manager": [
+		"UserManager"
+	]
+},
+{
+	"path" : "/Logout",
+	"controller" : "User",
+	"action" : "Logout",
+	"method" : "GET",
+	"param" : [],
+	"manager": []
+},
+{
+	"path" : "/Error",
+	"controller" : "Error",
+	"action" : "Show",
+	"method" : "GET",
+	"param" : [],
+	"manager": []
+}]
