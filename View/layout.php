@@ -23,7 +23,7 @@
 			<nav class="nav__container">
 				<ul class="menu">
 					<li class="menu__link"><a href="/">Accueil</a></li>
-					<li class="menu__link"><a>Articles</a></li>
+					<li class="menu__link"><a href="/listPost">Articles</a></li>
 					<li class="menu__link"><?php if(isset($linkLogin)) echo $linkLogin ?></li>
 				</ul>
 			</nav>
