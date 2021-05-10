@@ -11,4 +11,11 @@
 			$req->execute();
 			return $req->fetchAll(PDO::FETCH_CLASS, 'Post');
 		}
+
+		public function getPost($id) {
+			$req = $this->_bdd->prepare("SELECT * FROM post WHERE id=?");
+			$req->execute(array($id));
+			$req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Post");
+			return $req->fetch();
+		}
 	}

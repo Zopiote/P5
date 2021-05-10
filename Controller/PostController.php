@@ -10,7 +10,10 @@
         }
 
 		public function Post($id) {
-			var_dump($id);
+			$post = $this->PostManager->getpost($id);
+			
+			$this->addParam("post", $post);
+			$this->View("post");
 		}
 
 	}
