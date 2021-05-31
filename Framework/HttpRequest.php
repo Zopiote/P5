@@ -38,6 +38,7 @@
         public function bindParam() {
 			switch($this->_method) {
 				case "GET":
+                case "POST":
                 case "DELETE":
                     foreach($this->_route->getParam() as $param) {
 						if(isset($_GET[$param])) {

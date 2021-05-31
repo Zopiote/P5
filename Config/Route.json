@@ -30,6 +30,19 @@
 	]
 },
 {
+	"path" : "/post",
+	"controller" : "Post",
+	"action" : "Post",
+	"method" : "POST",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"PostManager",
+		"CommentManager"
+	]
+},
+{
 	"path" : "/Login",
 	"controller" : "User",
 	"action" : "Login",
