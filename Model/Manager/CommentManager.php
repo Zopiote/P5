@@ -13,4 +13,17 @@
 			return $req->fetchAll();
 		}
 
+		public function addComment($content, $id) {
+			$valid = 0;
+			$date = date("Y-m-d H:i:s");
+			
+			$req = $this->_bdd->prepare('INSERT INTO comment (publicationDate, content, valid, post_id) VALUES (:publicationDate, :content, :valid, :post_id)');
+
+			$req->bindParam(':publicationDate', $date);
+			$req->bindParam(':content', $content);
+			$req->bindParam(':valid', $valid);
+			$req->bindParam(':post_id', $id);
+
+			$req->execute();
+		}
 	}
