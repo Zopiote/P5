@@ -10,9 +10,11 @@
         }
 
 		public function Post($id) {
-			$post = $this->PostManager->getpost($id);
+			$post = $this->PostManager->getPost($id);
+			$comments = $this->CommentManager->getComments($id);
 			
 			$this->addParam("post", $post);
+			$this->addParam("comments", $comments);
 			$this->View("post");
 		}
 
