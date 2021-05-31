@@ -73,6 +73,18 @@
 	]
 },
 {
+	"path" : "/admin/post/delete",
+	"controller" : "Post",
+	"action" : "PostDelete",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"PostManager"
+	]
+},
+{
 	"path" : "/Login",
 	"controller" : "User",
 	"action" : "Login",

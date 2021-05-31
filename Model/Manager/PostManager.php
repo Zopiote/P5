@@ -31,4 +31,12 @@
 
 			$req->execute();
 		}
+
+		public function deletePost($id) {
+			$req = $this->_bdd->prepare('DELETE FROM post WHERE id=?');
+			
+			$req->execute(array($id));
+			return $req->execute();
+
+		}
 	}

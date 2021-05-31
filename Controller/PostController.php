@@ -78,4 +78,11 @@
 			$this->View("admin/postadd");
         }
 
+		public function PostDelete($id) {
+
+			$this->PostManager->deletePost($id);
+
+			header("Location: /admin/post/list");
+			exit();
+		}
 	}
