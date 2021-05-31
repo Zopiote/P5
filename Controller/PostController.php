@@ -34,4 +34,48 @@
 			$this->View("post");
 		}
 
+		/* Administration Post */
+
+		public function PostList() {
+			$posts = $this->PostManager->getPosts();
+            
+			$this->addParam("posts", $posts);
+			$this->View("admin/postlist");
+        }
+
+		public function PostAdd() {
+            
+			$form = new Form();
+			$form->add('title', "Title", [
+				function($value) {
+					return [
+						"assertion" => $value !== "",
+						"message" => "Votre champ ne doit pas êtres vide."
+					];
+			}]);
+			$form->add('chapo', "Chapo", [
+				function($value) {
+					return [
+						"assertion" => $value !== "",
+						"message" => "Votre champ ne doit pas êtres vide."
+					];
+			}]);
+			$form->add('content', "Content", [
+				function($value) {
+					return [
+						"assertion" => $value !== "",
+						"message" => "Votre champ ne doit pas êtres vide."
+					];
+			}]);
+			$form->handle($this->_httpRequest);
+			if($form->isSubmitted() && $form->isValid()) {
+				$this->PostManager->addPost($form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value']);
+				header("Location: /admin/post/list");
+				exit();
+			}
+
+			$this->addParam("form", $form);
+			$this->View("admin/postadd");
+        }
+
 	}
