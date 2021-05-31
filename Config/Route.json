@@ -7,6 +7,28 @@
 	"manager": []
 },
 {
+	"path" : "/listPost",
+	"controller" : "Post",
+	"action" : "ListPost",
+	"method" : "GET",
+	"param" : [],
+	"manager": [
+		"PostManager"
+	]
+},
+{
+	"path" : "/post",
+	"controller" : "Post",
+	"action" : "Post",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"PostManager"
+	]
+},
+{
 	"path" : "/Login",
 	"controller" : "User",
 	"action" : "Login",

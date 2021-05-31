@@ -54,7 +54,7 @@ body {
     border: none;
     width: 100%;
     color: #393e46;
-    padding: 5px;
+    padding: 5px 25px;
     max-width: 125px;
     border-radius: 10px;
     font-family: 'Oswald', sans-serif;
@@ -151,6 +151,44 @@ body {
 .text__profil {
     text-align: center;
     margin: 0;
+}
+
+/* CARD */
+
+.card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.card {
+    width: 350px;
+    background-color: #222831;
+    padding: 15px;
+    margin: 25px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+    color: #eeeeee;
+}
+.card-title {
+    font-size: 17px;
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+.card-chapo {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 5px 0;
+}
+.card-date {
+    font-size: 12px;
+    font-weight: 300;
+    margin: 10px 0;
+    text-align: right;
+}
+.card-date > span {
+    font-weight: 500;
 }
 
 /* FOOTER */
