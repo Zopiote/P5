@@ -43,6 +43,36 @@
 	]
 },
 {
+	"path" : "/admin/post/list",
+	"controller" : "Post",
+	"action" : "PostList",
+	"method" : "GET",
+	"param" : [],
+	"manager": [
+		"PostManager"
+	]
+},
+{
+	"path" : "/admin/post/add",
+	"controller" : "Post",
+	"action" : "PostAdd",
+	"method" : "GET",
+	"param" : [],
+	"manager": [
+		"PostManager"
+	]
+},
+{
+	"path" : "/admin/post/add",
+	"controller" : "Post",
+	"action" : "PostAdd",
+	"method" : "POST",
+	"param" : [],
+	"manager": [
+		"PostManager"
+	]
+},
+{
 	"path" : "/Login",
 	"controller" : "User",
 	"action" : "Login",
