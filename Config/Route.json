@@ -73,6 +73,30 @@
 	]
 },
 {
+	"path" : "/admin/post/edit",
+	"controller" : "Post",
+	"action" : "PostEdit",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"PostManager"
+	]
+},
+{
+	"path" : "/admin/post/edit",
+	"controller" : "Post",
+	"action" : "PostEdit",
+	"method" : "POST",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"PostManager"
+	]
+},
+{
 	"path" : "/admin/post/delete",
 	"controller" : "Post",
 	"action" : "PostDelete",

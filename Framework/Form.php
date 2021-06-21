@@ -9,15 +9,15 @@ class Form {
         $this->httpRequest = $httpRequest;
 
         foreach($this->fields as $name => &$field) {
-            $field['value'] = $this->httpRequest->getRequest()[$name] ?? null;
+            $field['value'] = $this->httpRequest->getRequest()[$name] ?? $field['value'];
         }
     }
 
-    public function add(string $name, string $label, array $constraints = [])
+    public function add(string $name, string $label, array $constraints = [], $value = null)
     {
         $this->fields[$name] = [
             "label" => $label,
-            "value" => null,
+            "value" => $value,
             "errors" => [],
             "constraints" => $constraints
         ];
