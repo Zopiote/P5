@@ -13,6 +13,7 @@
 
 			if(password_verify($password, $user->password)) {
 				$_SESSION['Connected'] = $user->email;
+				$_SESSION['Valid'] = $user->getValid();
 				header("Location: /");
 				exit();
 			}else {
