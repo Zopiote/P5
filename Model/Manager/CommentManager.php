@@ -6,6 +6,12 @@
 			parent::__construct("comment", "Comment", $datasource);	
 		}
 
+		public function getListComments() {
+			$req = $this->_bdd->prepare("SELECT * FROM comment");
+			$req->execute();
+			return $req->fetchAll(PDO::FETCH_CLASS, 'Comment');
+		}
+
         public function getComments($id) {
 			$req = $this->_bdd->prepare("SELECT * FROM comment WHERE post_id=?");
 			$req->execute(array($id));
@@ -25,5 +31,13 @@
 			$req->bindParam(':post_id', $id);
 
 			$req->execute();
+		}
+
+		public function deleteComment($id) {
+			$req = $this->_bdd->prepare('DELETE FROM comment WHERE id=?');
+			
+			$req->execute(array($id));
+			return $req->execute();
+
 		}
 	}
