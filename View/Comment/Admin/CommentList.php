@@ -15,6 +15,7 @@
                     <td><?= $comment->getPublicationDate() ?></td>
                     <td><?= $comment->getValid() ?></td>
                     <td>
+                        <?php if($comment->getValid() == "0"){ ?><a href="/admin/comment/valid?id=<?= $comment->getId() ?>">Validation</a><?php } ?>
                         <a href="/admin/comment/delete?id=<?= $comment->getId() ?>">Delete</a>
                     </td>
                 </tr>

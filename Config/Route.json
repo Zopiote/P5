@@ -131,6 +131,18 @@
 	]
 },
 {
+	"path" : "/admin/comment/valid",
+	"controller" : "Comment",
+	"action" : "CommentValid",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"CommentManager"
+	]
+},
+{
 	"path" : "/Login",
 	"controller" : "User",
 	"action" : "Login",
