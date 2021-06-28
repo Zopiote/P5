@@ -53,6 +53,16 @@
 	]
 },
 {
+	"path" : "/admin/comment/list",
+	"controller" : "Comment",
+	"action" : "CommentList",
+	"method" : "GET",
+	"param" : [],
+	"manager": [
+		"CommentManager"
+	]
+},
+{
 	"path" : "/admin/post/add",
 	"controller" : "Post",
 	"action" : "PostAdd",
@@ -106,6 +116,18 @@
 	],
 	"manager": [
 		"PostManager"
+	]
+},
+{
+	"path" : "/admin/comment/delete",
+	"controller" : "Comment",
+	"action" : "CommentDelete",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"CommentManager"
 	]
 },
 {
