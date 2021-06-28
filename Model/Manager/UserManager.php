@@ -27,4 +27,21 @@
 
 			$req->execute();
 		}
+
+		public function getListUsers() {
+			$req = $this->_bdd->prepare("SELECT * FROM user");
+			$req->execute();
+			return $req->fetchAll(PDO::FETCH_CLASS, 'User');
+		}
+
+		public function validUser($id) {
+			$valid = "1";
+
+			$req = $this->_bdd->prepare('UPDATE user SET valid = :valid WHERE id = :id');
+
+			$req->bindParam(':valid', $valid);
+			$req->bindParam(':id', $id);
+
+			$req->execute();
+		}
 	}

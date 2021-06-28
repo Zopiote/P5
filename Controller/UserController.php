@@ -60,4 +60,21 @@
 			unset($_SESSION['Connected']);
 			header("Location: /");
 		}
+
+		/* Administration user */
+
+        public function UserList() {
+            $users = $this->UserManager->getListUsers();
+            
+            $this->addParam("users", $users);
+            $this->View("admin/userlist");
+        }
+
+        public function UserValid($id) {
+			
+			$this->UserManager->validUser($id);
+
+			header("Location: /admin/user/list");
+			exit();
+		}
 	}
