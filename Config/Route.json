@@ -53,6 +53,26 @@
 	]
 },
 {
+	"path" : "/admin/comment/list",
+	"controller" : "Comment",
+	"action" : "CommentList",
+	"method" : "GET",
+	"param" : [],
+	"manager": [
+		"CommentManager"
+	]
+},
+{
+	"path" : "/admin/user/list",
+	"controller" : "User",
+	"action" : "UserList",
+	"method" : "GET",
+	"param" : [],
+	"manager": [
+		"UserManager"
+	]
+},
+{
 	"path" : "/admin/post/add",
 	"controller" : "Post",
 	"action" : "PostAdd",
@@ -73,6 +93,30 @@
 	]
 },
 {
+	"path" : "/admin/post/edit",
+	"controller" : "Post",
+	"action" : "PostEdit",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"PostManager"
+	]
+},
+{
+	"path" : "/admin/post/edit",
+	"controller" : "Post",
+	"action" : "PostEdit",
+	"method" : "POST",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"PostManager"
+	]
+},
+{
 	"path" : "/admin/post/delete",
 	"controller" : "Post",
 	"action" : "PostDelete",
@@ -82,6 +126,42 @@
 	],
 	"manager": [
 		"PostManager"
+	]
+},
+{
+	"path" : "/admin/comment/delete",
+	"controller" : "Comment",
+	"action" : "CommentDelete",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"CommentManager"
+	]
+},
+{
+	"path" : "/admin/comment/valid",
+	"controller" : "Comment",
+	"action" : "CommentValid",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"CommentManager"
+	]
+},
+{
+	"path" : "/admin/user/valid",
+	"controller" : "User",
+	"action" : "UserValid",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"UserManager"
 	]
 },
 {
