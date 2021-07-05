@@ -32,6 +32,19 @@
 			$req->execute();
 		}
 
+		public function editPost($title, $chapo, $content) {
+			$date = date("Y-m-d H:i:s");
+			
+			$req = $this->_bdd->prepare('UPDATE post SET title = :title, chapo = :chapo, content = :content, lastModificationDate = :lastModificationDate');
+
+			$req->bindParam(':title', $title);
+			$req->bindParam(':chapo', $chapo);
+			$req->bindParam(':content', $content);
+			$req->bindParam(':lastModificationDate', $date);
+
+			$req->execute();
+		}
+
 		public function deletePost($id) {
 			$req = $this->_bdd->prepare('DELETE FROM post WHERE id=?');
 			

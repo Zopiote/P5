@@ -8,6 +8,7 @@
         private $_method;
         private $_param;
         private $_manager;
+        private $_admin;
 
         public function __construct($route) {
             $this->_path = $route->path;
@@ -16,6 +17,7 @@
             $this->_method = $route->method;
             $this->_param = $route->param;
             $this->_manager = $route->manager;
+            $this->_admin = $route->admin;
         }
 
         public function getPath() {
@@ -40,6 +42,10 @@
 
         public function getManager() {
           return $this->_manager;
+        }
+
+        public function getAdmin() {
+          return $this->_admin;
         }
 
         public function run($httpRequest, $config) {
