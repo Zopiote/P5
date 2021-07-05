@@ -4,7 +4,8 @@
 	"action" : "Home",
 	"method" : "GET",
 	"param" : [],
-	"manager": []
+	"manager": [],
+	"admin": 0
 },
 {
 	"path" : "/listPost",
@@ -14,7 +15,8 @@
 	"param" : [],
 	"manager": [
 		"PostManager"
-	]
+	],
+	"admin": 0
 },
 {
 	"path" : "/post",
@@ -27,7 +29,8 @@
 	"manager": [
 		"PostManager",
 		"CommentManager"
-	]
+	],
+	"admin": 0
 },
 {
 	"path" : "/post",
@@ -40,7 +43,8 @@
 	"manager": [
 		"PostManager",
 		"CommentManager"
-	]
+	],
+	"admin": 0
 },
 {
 	"path" : "/admin/post/list",
@@ -50,7 +54,8 @@
 	"param" : [],
 	"manager": [
 		"PostManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/comment/list",
@@ -60,7 +65,8 @@
 	"param" : [],
 	"manager": [
 		"CommentManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/user/list",
@@ -70,7 +76,8 @@
 	"param" : [],
 	"manager": [
 		"UserManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/post/add",
@@ -80,7 +87,8 @@
 	"param" : [],
 	"manager": [
 		"PostManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/post/add",
@@ -90,7 +98,8 @@
 	"param" : [],
 	"manager": [
 		"PostManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/post/edit",
@@ -102,7 +111,8 @@
 	],
 	"manager": [
 		"PostManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/post/edit",
@@ -114,7 +124,8 @@
 	],
 	"manager": [
 		"PostManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/post/delete",
@@ -126,7 +137,8 @@
 	],
 	"manager": [
 		"PostManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/comment/delete",
@@ -138,7 +150,8 @@
 	],
 	"manager": [
 		"CommentManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/comment/valid",
@@ -150,7 +163,8 @@
 	],
 	"manager": [
 		"CommentManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/admin/user/valid",
@@ -162,7 +176,8 @@
 	],
 	"manager": [
 		"UserManager"
-	]
+	],
+	"admin": 1
 },
 {
 	"path" : "/Login",
@@ -170,7 +185,8 @@
 	"action" : "Login",
 	"method" : "GET",
 	"param" : [],
-	"manager": []
+	"manager": [],
+	"admin": 0
 },
 {
 	"path" : "/Login",
@@ -180,7 +196,8 @@
 	"param" : [],
 	"manager": [
 		"UserManager"	
-	]
+	],
+	"admin": 0
 },
 {
 	"path" : "/Registration",
@@ -188,7 +205,8 @@
 	"action" : "Registration",
 	"method" : "GET",
 	"param" : [],
-	"manager": []
+	"manager": [],
+	"admin": 0
 },
 {
 	"path" : "/Registration",
@@ -198,7 +216,8 @@
 	"param" : [],
 	"manager": [
 		"UserManager"
-	]
+	],
+	"admin": 0
 },
 {
 	"path" : "/Logout",
@@ -206,7 +225,8 @@
 	"action" : "Logout",
 	"method" : "GET",
 	"param" : [],
-	"manager": []
+	"manager": [],
+	"admin": 0
 },
 {
 	"path" : "/Error",
@@ -214,5 +234,6 @@
 	"action" : "Show",
 	"method" : "GET",
 	"param" : [],
-	"manager": []
+	"manager": [],
+	"admin": 0
 }]
