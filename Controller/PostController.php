@@ -45,6 +45,8 @@
 
 		public function PostAdd() {
             
+			$tokenCsrf = md5(uniqid('csrf_'));
+
 			$form = new Form();
 			$form->add('title', "Title", [
 				function($value) {
@@ -69,16 +71,28 @@
 			}]);
 			$form->handle($this->_httpRequest);
 			if($form->isSubmitted() && $form->isValid()) {
-				$this->PostManager->addPost($form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value']);
-				header("Location: /admin/post/list");
-				exit();
+
+				if($_SERVER["REQUEST_METHOD"] === "POST") {
+					if($_SESSION['_token'] === $_POST["_token"]) {
+						$this->PostManager->addPost($form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value']);
+						header("Location: /admin/post/list");
+						exit();
+					} else {
+						echo "CSRF invalid";
+					}
+				}
 			}
+			
+			$_SESSION['_token'] = $tokenCsrf;
 
 			$this->addParam("form", $form);
 			$this->View("admin/postadd");
         }
 
 		public function PostEdit($id) {
+			
+			$tokenCsrf = md5(uniqid('csrf_'));
+			
 			$post = $this->PostManager->getPost($id);
 
 			$form = new Form();
@@ -105,10 +119,19 @@
 			}], $post->getContent());
 			$form->handle($this->_httpRequest);
 			if($form->isSubmitted() && $form->isValid()) {
-				$this->PostManager->editPost($form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value']);
-				header("Location: /admin/post/list");
-				exit();
+
+				if($_SERVER["REQUEST_METHOD"] === "POST") {
+					if($_SESSION['_token'] === $_POST["_token"]) {
+						$this->PostManager->editPost($form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value']);
+						header("Location: /admin/post/list");
+						exit();
+					} else {
+						echo "CSRF invalid";
+					}
+				}
 			}
+
+			$_SESSION['_token'] = $tokenCsrf;
 
 			$this->addParam("form", $form);
 			$this->View("admin/postedit");

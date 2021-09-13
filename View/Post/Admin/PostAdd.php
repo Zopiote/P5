@@ -28,6 +28,7 @@
 				<?php } ?>
 			<?php } ?>
 		</div>
+		<input name="_token" id="_token" type="hidden" value="<?php echo $_SESSION['_token'] ?>">
 		<button type="submit" class="btn btn-primary" name="submit">Ajouter</button>
 	</form>
 </div>

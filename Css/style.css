@@ -152,6 +152,34 @@ body {
     text-align: center;
     margin: 0;
 }
+.infos__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.contact__form {
+    width: 48%;
+}
+.rs__container {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.rs__content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+.pdf__link {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+.img-rs {
+    width: 30px;
+    height: 30px;
+}
 
 /* CARD */
 
@@ -191,6 +219,12 @@ body {
     font-weight: 500;
 }
 
-/* FOOTER */
+/* FORM */
 
-
+.form__container {
+    background-color: #222831;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 25px;
+}

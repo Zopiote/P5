@@ -8,6 +8,15 @@
 	"admin": 0
 },
 {
+	"path" : "/",
+	"controller" : "Home",
+	"action" : "Home",
+	"method" : "POST",
+	"param" : [],
+	"manager": [],
+	"admin": 0
+},
+{
 	"path" : "/listPost",
 	"controller" : "Post",
 	"action" : "ListPost",
