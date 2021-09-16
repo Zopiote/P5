@@ -1,3 +1,7 @@
+<?php
+    require_once 'vendor/autoload.php';
+?>
+
 <section id="section-accueil" class="page">
     <h1 class="page__title">Bienvenue sur mon blog</h1>
     <img class="image__profil" src="Media/Profil.jpg">
@@ -8,16 +12,27 @@
         <div class="contact__form">
         <?php 
             if(isset($_POST['submit'])){
-                $to = "corblin.aurelien69@gmail.com";
-                $from = $_POST['email'];
-                $prenom = $_POST['prenom'];
-                $nom = $_POST['nom'];
-                $message = $_POST['message'];
-                $sujet = "Cnntact";
-
-                $headers = "De:" . $from;
-                mail($to, $sujet, $message, $headers);
-                echo "Le mail à bien été envoyer, vous serez contacter dans les plus bref délais.";
+                try {
+                    $transport = (new Swift_SmtpTransport('smtp.googlemail.com', 465, 'ssl'))
+                      ->setUsername('corblin.aurelien69@gmail.com')
+                      ->setPassword('Fryfry69')
+                    ;
+                 
+                    $mailer = new Swift_Mailer($transport);
+                 
+                    $message = (new Swift_Message('Contact'))
+                      ->setFrom([$_POST['email'] => $_POST['prenom']])
+                      ->setTo(['corblin.aurelien69@gmail.com'])
+                      ->setBody($_POST['message'])
+                      ->setContentType('text/html')
+                    ;
+                 
+                    $mailer->send($message);
+                 
+                    echo "Le mail à bien été envoyer, vous serez contacter dans les plus bref délais.";
+                } catch(Exception $e) {
+                    echo $e->getMessage();
+                }
             }
         ?>
             <form action="/" method="POST" class="form__container">

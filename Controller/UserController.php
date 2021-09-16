@@ -8,28 +8,18 @@
 		
 		public function Authenticate() {
 
-			$tokenCsrf = md5(uniqid('csrf_'));
-
 			$login = $this->_httpRequest->getRequest()["login"];
 			$password = $this->_httpRequest->getRequest()["password"];
 			$user = $this->UserManager->getByMail($login);
 
 			if(password_verify($password, $user->password)) {
-				if($_SERVER["REQUEST_METHOD"] === "POST") {
-					if($_SESSION['_token'] === $_POST["_token"]) {
 						$_SESSION['Connected'] = $user->email;
 						$_SESSION['Valid'] = $user->getValid();
 						header("Location: /");
 						exit();
-					} else {
-						echo "CSRF invalid";
-					}
-				}
 			}else {
 				header("Location: /Login");
 			}
-
-			$_SESSION['_token'] = $tokenCsrf;
 		}
 
 		public function Registration() {
