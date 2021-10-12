@@ -1,7 +1,3 @@
-<?php
-    require_once 'vendor/autoload.php';
-?>
-
 <section id="section-accueil" class="page">
     <h1 class="page__title">Bienvenue sur mon blog</h1>
     <img class="image__profil" src="Media/Profil.jpg">
@@ -10,48 +6,23 @@
 
     <div class="infos__container">
         <div class="contact__form">
-        <?php 
-            if(isset($_POST['submit'])){
-                try {
-                    $transport = (new Swift_SmtpTransport('smtp.googlemail.com', 465, 'ssl'))
-                      ->setUsername('corblin.aurelien69@gmail.com')
-                      ->setPassword('Fryfry69')
-                    ;
-                 
-                    $mailer = new Swift_Mailer($transport);
-                 
-                    $message = (new Swift_Message('Contact'))
-                      ->setFrom([$_POST['email'] => $_POST['prenom']])
-                      ->setTo(['corblin.aurelien69@gmail.com'])
-                      ->setBody($_POST['message'])
-                      ->setContentType('text/html')
-                    ;
-                 
-                    $mailer->send($message);
-                 
-                    echo "Le mail à bien été envoyer, vous serez contacter dans les plus bref délais.";
-                } catch(Exception $e) {
-                    echo $e->getMessage();
-                }
-            }
-        ?>
-            <form action="/" method="POST" class="form__container">
+            <form action="/email/contact" method="POST" class="form__container">
 		        <h2 class="form__title">Me contacter</h2>
                 <div class="form__control">
                     <label class="form__label" for="prenom">Prénom</label>
-			        <input class="form__input" name="prenom" type="text" id="prenom">
+			        <input class="form__input" name="prenom" type="text" id="prenom" required="true">
                 </div>
                 <div class="form__control">
                     <label class="form__label" for="nom">Nom</label>
-			        <input class="form__input" name="nom" type="text" id="nom">
+			        <input class="form__input" name="nom" type="text" id="nom" required="true">
                 </div>
                 <div class="form__control">
                     <label class="form__label" for="email">Email</label>
-			        <input class="form__input" name="email" type="email" id="email">
+			        <input class="form__input" name="email" type="email" id="email" required="true">
                 </div>
                 <div class="form__control">
                     <label class="form__label" for="message">Message</label>
-			        <input class="form__input" name="message" type="textarea" id="message">
+			        <textarea class="form__input" name="message" id="message" required="true"></textarea>
                 </div>
 		        <button type="submit" class="btn btn-primary" name="submit">Envoyer</button>
             </form>

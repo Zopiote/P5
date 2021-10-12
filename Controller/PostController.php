@@ -78,7 +78,7 @@
 						header("Location: /admin/post/list");
 						exit();
 					} else {
-						echo "CSRF invalid";
+						echo "<div class='alert alert-danger'>CSRF invalid</div>";
 					}
 				}
 			}
@@ -126,7 +126,7 @@
 						header("Location: /admin/post/list");
 						exit();
 					} else {
-						echo "CSRF invalid";
+						echo "<div class='alert alert-danger'>CSRF invalid</div>";
 					}
 				}
 			}

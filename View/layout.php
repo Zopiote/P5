@@ -16,10 +16,11 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>Titre de la page</title>
+		<title>projet 5</title>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap" rel="stylesheet">
-		<link href="Css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=delete">
+		<link href="/Css/style.css" rel="stylesheet">
 	</head>
 
 	<body>

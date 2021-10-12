@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '9c0f61637234b9e9426052753ede88ea81f2c100',
+    'reference' => '19d8c8700672c4d4fe747f4cdd55e9bcf7bb9837',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '9c0f61637234b9e9426052753ede88ea81f2c100',
+      'reference' => '19d8c8700672c4d4fe747f4cdd55e9bcf7bb9837',
     ),
     'doctrine/lexer' => 
     array (
@@ -46,6 +46,24 @@
       array (
       ),
       'reference' => '15f7faf8508e04471f666633addacf54c0ab5933',
+    ),
+    'symfony/deprecation-contracts' => 
+    array (
+      'pretty_version' => 'v2.4.0',
+      'version' => '2.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5f38c8804a9e97d23e0c8d63341088cd8a22d627',
+    ),
+    'symfony/dotenv' => 
+    array (
+      'pretty_version' => 'v5.3.8',
+      'version' => '5.3.8.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '12888c9c46ac750ec5c1381db5bf3d534e7d70cb',
     ),
     'symfony/polyfill-iconv' => 
     array (

@@ -1,5 +1,5 @@
 <div class="post__container">
-	<form method="POST" class="post__form">
+	<form method="POST" class="form__container">
 		<h2 class="form__title">Ajouter un post</h2>
 		<div class="form__control">
 			<label class="form__label" for="title"><?= $form->fields['title']['label'] ?></label>

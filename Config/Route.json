@@ -245,4 +245,13 @@
 	"param" : [],
 	"manager": [],
 	"admin": 0
+},
+{
+	"path" : "/email/contact",
+	"controller" : "Email",
+	"action" : "EmailContact",
+	"method" : "POST",
+	"param" : [],
+	"manager": [],
+	"admin": 0
 }]

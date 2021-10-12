@@ -59,7 +59,7 @@
 						header("Location: /Login");
 						exit();
 					} else {
-						echo "CSRF invalid";
+						echo "<div class='alert alert-danger'>CSRF invalid</div>";
 					}
 				}
 			}
