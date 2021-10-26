@@ -88,6 +88,16 @@
 			
 			$this->UserManager->validUser($id);
 
+			$_SESSION['message'] = "<div class='alert alert-success'>l'Utilisateur vient d'êtres validé.</div>";
+			header("Location: /admin/user/list");
+			exit();
+		}
+
+		public function UserDevalid($id) {
+			
+			$this->UserManager->devalidUser($id);
+
+			$_SESSION['message'] = "<div class='alert alert-success'>l'Utilisateur vient d'êtres dévalidé.</div>";
 			header("Location: /admin/user/list");
 			exit();
 		}

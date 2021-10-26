@@ -7,7 +7,7 @@
 	}
 
 	if(isset($_SESSION['Valid']) && $_SESSION['Valid'] == "1") {
-		$linkAdmin = '<li class="menu__link"><a href="/admin/post/list">Administration</a></li>';
+		$linkAdmin = '<li class="menu__link"><a href="/home/admin">Administration</a></li>';
 	}
 ?>
 
@@ -24,6 +24,7 @@
 	</head>
 
 	<body>
+		<?php if(isset($message)) { echo $message; } ?>
 		<header id="header">
 			<nav class="nav__container">
 				<ul class="menu">
@@ -40,5 +41,8 @@
 		<footer id="footer">
 
 		</footer>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script type="text/javascript" src="/Js/script.js"></script>
 	</body>
 </html>

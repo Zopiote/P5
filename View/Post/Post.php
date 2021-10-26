@@ -3,6 +3,7 @@
 
     <div class="page-container">
         <p class="post-chapo"><?= $post->getContent() ?></p>
+        <img src='./Uploads/<?= $post->getImage() ?>' alt='<?= $post->getImage() ?>' width='300px'>
         <p class="post-date">Dernière modification: <span><?= $post->getLastModificationDate() ?></span></p>
 
         <div class="comment-container">
@@ -13,11 +14,11 @@
                 </div>
             <?php } ?>
 
-            <form method="POST" class="comment__form">
+            <form method="POST" class="form__container">
                 <h2 class="form__title">Ajouter un commentaire</h2>
                 <div class="form__control">
                     <label class="form__label" for="content"><?= $form->fields['content']['label'] ?></label>
-                    <input class="form__input" name="content" type="text" id="content" value="<?= $form->fields['content']['value'] ?>">
+                    <textarea class="form__input" name="content" type="text" id="content" value="<?= $form->fields['content']['value'] ?>"></textarea>
                     <?php if(count($form->fields['content']['errors']) > 0) { ?>
                         <?php foreach($form->fields['content']['errors'] as $error) { ?>
                             <span class="alert alert-danger"><?= $error ?></span>

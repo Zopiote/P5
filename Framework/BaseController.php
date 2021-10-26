@@ -19,6 +19,10 @@
 			if(file_exists("View/" . $this->_httpRequest->getRoute()->getController() . "/" . $filename . ".php")) {
 				ob_start();
 				extract($this->_param);
+				if (isset($_SESSION['message'])) {
+					$message = $_SESSION['message'];
+					unset($_SESSION['message']);
+				}
 				include("View/" . $this->_httpRequest->getRoute()->getController() . "/" . $filename . ".php");
 				$content = ob_get_clean();
 				include("View/layout.php");

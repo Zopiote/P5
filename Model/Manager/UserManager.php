@@ -44,4 +44,15 @@
 
 			$req->execute();
 		}
+
+		public function devalidUser($id) {
+			$valid = "0";
+
+			$req = $this->_bdd->prepare('UPDATE user SET valid = :valid WHERE id = :id');
+
+			$req->bindParam(':valid', $valid);
+			$req->bindParam(':id', $id);
+
+			$req->execute();
+		}
 	}

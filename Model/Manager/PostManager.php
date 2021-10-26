@@ -19,28 +19,31 @@
 			return $req->fetch();
 		}
 
-		public function addPost($title, $chapo, $content) {
+		public function addPost($title, $chapo, $content, $fileName) {
 			$date = date("Y-m-d H:i:s"); 
 			
-			$req = $this->_bdd->prepare('INSERT INTO post (title, chapo, content, lastModificationDate) VALUES (:title, :chapo, :content, :lastModificationDate)');
+			$req = $this->_bdd->prepare('INSERT INTO post (title, chapo, content, lastModificationDate, image) VALUES (:title, :chapo, :content, :lastModificationDate, :image)');
 
 			$req->bindParam(':title', $title);
 			$req->bindParam(':chapo', $chapo);
 			$req->bindParam(':content', $content);
 			$req->bindParam(':lastModificationDate', $date);
+			$req->bindParam(':image', $fileName);
 
 			$req->execute();
 		}
 
-		public function editPost($title, $chapo, $content) {
+		public function editPost($id, $title, $chapo, $content, $fileName) {
 			$date = date("Y-m-d H:i:s");
 			
-			$req = $this->_bdd->prepare('UPDATE post SET title = :title, chapo = :chapo, content = :content, lastModificationDate = :lastModificationDate');
+			$req = $this->_bdd->prepare('UPDATE post SET title = :title, chapo = :chapo, content = :content, lastModificationDate = :lastModificationDate image = :image WHERE id = :id');
 
+			$req->bindParam(':id', $id);
 			$req->bindParam(':title', $title);
 			$req->bindParam(':chapo', $chapo);
 			$req->bindParam(':content', $content);
 			$req->bindParam(':lastModificationDate', $date);
+			$req->bindParam(':image', $fileName);
 
 			$req->execute();
 		}

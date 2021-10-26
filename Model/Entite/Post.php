@@ -6,6 +6,7 @@
 		public $title;
 		public $chapo;
 		public $content;
+		public $image;
 		public $lastModificationDate;
 		
 		public function __construct() {
@@ -42,6 +43,16 @@
 
 		public function setContent($content) {
 			$this->content = $content;
+
+			return $this;
+		}
+
+		public function getImage() {
+			return $this->image;
+		}
+
+		public function setImage($image) {
+			$this->image = $image;
 
 			return $this;
 		}
