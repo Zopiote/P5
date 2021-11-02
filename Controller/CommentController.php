@@ -19,4 +19,12 @@
 			exit();
 		}
 
+        public function CommentValid($id) {
+
+			$this->CommentManager->validComment();
+
+			header("Location: /admin/comment/list");
+			exit();
+		}
+
     }

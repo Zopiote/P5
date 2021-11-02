@@ -13,8 +13,15 @@
 		}
 
         public function getComments($id) {
-			$req = $this->_bdd->prepare("SELECT * FROM comment WHERE post_id=?");
-			$req->execute(array($id));
+			$valid = "1";
+
+			$req = $this->_bdd->prepare("SELECT * FROM comment WHERE post_id = :post AND valid = :valid");
+			
+			$req->bindParam(':post', $id);
+			$req->bindParam(':valid', $valid);
+
+			$req->execute();
+
 			$req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Comment");
 			return $req->fetchAll();
 		}
@@ -39,5 +46,15 @@
 			$req->execute(array($id));
 			return $req->execute();
 
+		}
+
+		public function validComment() {
+			$valid = "1";
+
+			$req = $this->_bdd->prepare('UPDATE comment SET valid = :valid');
+
+			$req->bindParam(':valid', $valid);
+
+			$req->execute();
 		}
 	}
