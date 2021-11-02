@@ -48,12 +48,24 @@
 
 		}
 
-		public function validComment() {
+		public function validComment($id) {
 			$valid = "1";
 
-			$req = $this->_bdd->prepare('UPDATE comment SET valid = :valid');
+			$req = $this->_bdd->prepare('UPDATE comment SET valid = :valid WHERE id = :id');
 
 			$req->bindParam(':valid', $valid);
+			$req->bindParam(':id', $id);
+
+			$req->execute();
+		}
+
+		public function devalidComment($id) {
+			$valid = "0";
+
+			$req = $this->_bdd->prepare('UPDATE comment SET valid = :valid WHERE id = :id');
+
+			$req->bindParam(':valid', $valid);
+			$req->bindParam(':id', $id);
 
 			$req->execute();
 		}

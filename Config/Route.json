@@ -17,6 +17,15 @@
 	"admin": 0
 },
 {
+	"path" : "/home/admin",
+	"controller" : "Home",
+	"action" : "HomeAdmin",
+	"method" : "GET",
+	"param" : [],
+	"manager": [],
+	"admin": 1
+},
+{
 	"path" : "/listPost",
 	"controller" : "Post",
 	"action" : "ListPost",
@@ -176,9 +185,35 @@
 	"admin": 1
 },
 {
+	"path" : "/admin/comment/devalid",
+	"controller" : "Comment",
+	"action" : "CommentDevalid",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"CommentManager"
+	],
+	"admin": 1
+},
+{
 	"path" : "/admin/user/valid",
 	"controller" : "User",
 	"action" : "UserValid",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"UserManager"
+	],
+	"admin": 1
+},
+{
+	"path" : "/admin/user/devalid",
+	"controller" : "User",
+	"action" : "UserDevalid",
 	"method" : "GET",
 	"param" : [
 		"id"
@@ -242,6 +277,15 @@
 	"controller" : "Error",
 	"action" : "Show",
 	"method" : "GET",
+	"param" : [],
+	"manager": [],
+	"admin": 0
+},
+{
+	"path" : "/email/contact",
+	"controller" : "Email",
+	"action" : "EmailContact",
+	"method" : "POST",
 	"param" : [],
 	"manager": [],
 	"admin": 0

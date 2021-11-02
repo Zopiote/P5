@@ -6,37 +6,23 @@
 
     <div class="infos__container">
         <div class="contact__form">
-        <?php 
-            if(isset($_POST['submit'])){
-                $to = "corblin.aurelien69@gmail.com";
-                $from = $_POST['email'];
-                $prenom = $_POST['prenom'];
-                $nom = $_POST['nom'];
-                $message = $_POST['message'];
-                $sujet = "Cnntact";
-
-                $headers = "De:" . $from;
-                mail($to, $sujet, $message, $headers);
-                echo "Le mail à bien été envoyer, vous serez contacter dans les plus bref délais.";
-            }
-        ?>
-            <form action="/" method="POST" class="form__container">
+            <form action="/email/contact" method="POST" class="form__container">
 		        <h2 class="form__title">Me contacter</h2>
                 <div class="form__control">
                     <label class="form__label" for="prenom">Prénom</label>
-			        <input class="form__input" name="prenom" type="text" id="prenom">
+			        <input class="form__input" name="prenom" type="text" id="prenom" required="true">
                 </div>
                 <div class="form__control">
                     <label class="form__label" for="nom">Nom</label>
-			        <input class="form__input" name="nom" type="text" id="nom">
+			        <input class="form__input" name="nom" type="text" id="nom" required="true">
                 </div>
                 <div class="form__control">
                     <label class="form__label" for="email">Email</label>
-			        <input class="form__input" name="email" type="email" id="email">
+			        <input class="form__input" name="email" type="email" id="email" required="true">
                 </div>
                 <div class="form__control">
                     <label class="form__label" for="message">Message</label>
-			        <input class="form__input" name="message" type="textarea" id="message">
+			        <textarea class="form__input" name="message" id="message" required="true"></textarea>
                 </div>
 		        <button type="submit" class="btn btn-primary" name="submit">Envoyer</button>
             </form>

@@ -5,4 +5,8 @@
 		public function Home() {
 			$this->view("home");
 		}
+
+		public function HomeAdmin() {
+			$this->view("home-admin");
+		}
 	}

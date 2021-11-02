@@ -48,21 +48,28 @@
 			$tokenCsrf = md5(uniqid('csrf_'));
 
 			$form = new Form();
-			$form->add('title', "Title", [
+			$form->add('title', "Titre", [
 				function($value) {
 					return [
 						"assertion" => $value !== "",
 						"message" => "Votre champ ne doit pas êtres vide."
 					];
 			}]);
-			$form->add('chapo', "Chapo", [
+			$form->add('chapo', "Extrait", [
 				function($value) {
 					return [
 						"assertion" => $value !== "",
 						"message" => "Votre champ ne doit pas êtres vide."
 					];
 			}]);
-			$form->add('content', "Content", [
+			$form->add('content', "Contenu", [
+				function($value) {
+					return [
+						"assertion" => $value !== "",
+						"message" => "Votre champ ne doit pas êtres vide."
+					];
+			}]);
+			$form->add('image', "Image", [
 				function($value) {
 					return [
 						"assertion" => $value !== "",
@@ -74,11 +81,29 @@
 
 				if($_SERVER["REQUEST_METHOD"] === "POST") {
 					if($_SESSION['_token'] === $_POST["_token"]) {
-						$this->PostManager->addPost($form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value']);
+
+						if(isset($_FILES['image'])){
+							$tmpName = $_FILES['image']['tmp_name'];
+							$fileName = $_FILES['image']['name'];
+							$size = $_FILES['image']['size'];
+							$error = $_FILES['image']['error'];
+
+							$maxSize = 400000;
+
+							if($size <= $maxSize && $error == 0){
+								move_uploaded_file($tmpName, './Uploads/'.$fileName);
+							} else {
+								$_SESSION['message'] = "<div class='alert alert-danger'>Fichier non valide.</div>";
+								exit();
+							}
+						}
+						
+						$this->PostManager->addPost($form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value'], $_FILES['image']['name']);
+						$_SESSION['message'] = "<div class='alert alert-success'>Le post à bien été ajouter.</div>";
 						header("Location: /admin/post/list");
 						exit();
 					} else {
-						echo "CSRF invalid";
+						$_SESSION['message'] = "<div class='alert alert-danger'>CSRF invalid</div>";
 					}
 				}
 			}
@@ -96,37 +121,46 @@
 			$post = $this->PostManager->getPost($id);
 
 			$form = new Form();
-			$form->add('title', "Title", [
+			$form->add('title', "Titre", [
 				function($value) {
 					return [
 						"assertion" => $value !== "",
 						"message" => "Votre champ ne doit pas êtres vide."
 					];
 			}], $post->getTitle());
-			$form->add('chapo', "Chapo", [
+			$form->add('chapo', "Extrait", [
 				function($value) {
 					return [
 						"assertion" => $value !== "",
 						"message" => "Votre champ ne doit pas êtres vide."
 					];
 			}], $post->getChapo());
-			$form->add('content', "Content", [
+			$form->add('content', "Contenu", [
 				function($value) {
 					return [
 						"assertion" => $value !== "",
 						"message" => "Votre champ ne doit pas êtres vide."
 					];
 			}], $post->getContent());
+			$form->add('image', "Image", [
+				function($value) {
+					return [
+						"assertion" => $value !== "",
+						"message" => "Votre champ ne doit pas êtres vide."
+					];
+			}], $post->getImage());
 			$form->handle($this->_httpRequest);
 			if($form->isSubmitted() && $form->isValid()) {
 
 				if($_SERVER["REQUEST_METHOD"] === "POST") {
 					if($_SESSION['_token'] === $_POST["_token"]) {
-						$this->PostManager->editPost($form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value']);
+						$this->PostManager->editPost($id, $form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value']);
+						$_SESSION['message'] = "<div class='alert alert-success'>Le post à bien été modifier.</div>";
+						
 						header("Location: /admin/post/list");
 						exit();
 					} else {
-						echo "CSRF invalid";
+						$_SESSION['message'] = "<div class='alert alert-danger'>CSRF invalid</div>";
 					}
 				}
 			}
@@ -141,6 +175,7 @@
 
 			$this->PostManager->deletePost($id);
 
+			$_SESSION['message'] = "<div class='alert alert-success'>Le post à bien été supprimer.</div>";
 			header("Location: /admin/post/list");
 			exit();
 		}

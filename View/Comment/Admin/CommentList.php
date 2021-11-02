@@ -1,11 +1,11 @@
 <section id="section-postlist" class="page">
-    <h1 class="page__title">Liste comments</h1>
+    <h1 class="page__title">Liste des commentaires</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Date</th>
-                <th>Valid</th>
+                <th>Valide</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -15,8 +15,8 @@
                     <td><?= $comment->getPublicationDate() ?></td>
                     <td><?= $comment->getValid() ?></td>
                     <td>
-                        <?php if($comment->getValid() == "0"){ ?><a href="/admin/comment/valid?id=<?= $comment->getId() ?>">Validation</a><?php } ?>
-                        <a href="/admin/comment/delete?id=<?= $comment->getId() ?>">Delete</a>
+                        <?php if($comment->getValid() == "0"){ ?><a href="/admin/comment/valid?id=<?= $comment->getId() ?>"><img class="table-img" src="../../Files/check_white_24dp.svg"></a><?php }else{ ?><a href="/admin/comment/devalid?id=<?= $comment->getId() ?>"><img class="table-img" src="../../Files/clear_white_24dp.svg"></a><?php }; ?>
+                        <a href="/admin/comment/delete?id=<?= $comment->getId() ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer ce commentaire ?');"><img class="table-img" src="../../Files/delete_white_24dp.svg"></a>
                     </td>
                 </tr>
             <?php } ?>
