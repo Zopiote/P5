@@ -13,6 +13,7 @@
 
 			if(password_verify($password, $user->password)) {
 				$_SESSION['Connected'] = $user->email;
+				$_SESSION['Valid'] = $user->getValid();
 				header("Location: /");
 				exit();
 			}else {
@@ -59,5 +60,22 @@
 		public function Logout() {
 			unset($_SESSION['Connected']);
 			header("Location: /");
+		}
+
+		/* Administration user */
+
+        public function UserList() {
+            $users = $this->UserManager->getListUsers();
+            
+            $this->addParam("users", $users);
+            $this->View("admin/userlist");
+        }
+
+        public function UserValid($id) {
+			
+			$this->UserManager->validUser($id);
+
+			header("Location: /admin/user/list");
+			exit();
 		}
 	}

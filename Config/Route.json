@@ -63,6 +63,16 @@
 	]
 },
 {
+	"path" : "/admin/user/list",
+	"controller" : "User",
+	"action" : "UserList",
+	"method" : "GET",
+	"param" : [],
+	"manager": [
+		"UserManager"
+	]
+},
+{
 	"path" : "/admin/post/add",
 	"controller" : "Post",
 	"action" : "PostAdd",
@@ -140,6 +150,18 @@
 	],
 	"manager": [
 		"CommentManager"
+	]
+},
+{
+	"path" : "/admin/user/valid",
+	"controller" : "User",
+	"action" : "UserValid",
+	"method" : "GET",
+	"param" : [
+		"id"
+	],
+	"manager": [
+		"UserManager"
 	]
 },
 {
