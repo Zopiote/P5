@@ -12,11 +12,11 @@
         <tbody>
             <?php foreach($posts as $post){ ?>
                 <tr>
-                    <td><?= $post->getTitle() ?></td>
-                    <td><?= $post->getLastModificationDate() ?></td>
+                    <td><?= htmlspecialchars($post->getTitle()) ?></td>
+                    <td><?= htmlspecialchars($post->getLastModificationDate()) ?></td>
                     <td>
-                        <a class="table-link" href="/admin/post/edit?id=<?= $post->getId() ?>"><img class="table-img" src="../../Files/edit_white_24dp.svg"></a>
-                        <a class="table-link" href="/admin/post/delete?id=<?= $post->getId() ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer ce post ?');"><img class="table-img" src="../../Files/delete_white_24dp.svg"></a>
+                        <a class="table-link" href="/admin/post/edit?id=<?= htmlspecialchars($post->getId()) ?>"><img class="table-img" src="../../Files/edit_white_24dp.svg"></a>
+                        <a class="table-link" href="/admin/post/delete?id=<?= htmlspecialchars($post->getId()) ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer ce post ?');"><img class="table-img" src="../../Files/delete_white_24dp.svg"></a>
                     </td>
                 </tr>
             <?php } ?>

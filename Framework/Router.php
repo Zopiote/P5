@@ -24,8 +24,9 @@
 			}else if($numberRoute == 0) {
 				throw new NoRouteFoundException($httpRequest);
 			}else {
+				$valid = $_SESSION['Valid'];
 				$route = new Route(array_shift($routeFound));
-				if(($route->getAdmin() && $_SESSION['Valid']??false) || !$route->getAdmin()) {
+				if(($route->getAdmin() && $valid??false) || !$route->getAdmin()) {
 					return $route;
 				}
 				throw new AccessDeniedException();

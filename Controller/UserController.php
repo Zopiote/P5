@@ -51,11 +51,17 @@
 			$form->add('password', "Mot de passe");
 			$form->handle($this->_httpRequest);
 			if($form->isSubmitted() && $form->isValid()) {
+				$requestMethode = $_SERVER["REQUEST_METHOD"];
+				$sessionToken = $_SESSION['_token'];
 
-				if($_SERVER["REQUEST_METHOD"] === "POST") {
-					if($_SESSION['_token'] === $_POST["_token"]) {
-						$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-						$this->UserManager->addUser($_POST['pseudo'], $passwordHash, $_POST['email']);
+				if(isset($requestMethode) && $requestMethode === "POST") {
+					if( $sessionToken === $_POST["_token"]) {
+						$password = $_POST['password'];
+						$pseudo = $_POST['pseudo'];
+						$email = $_POST['email'];
+
+						$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+						$this->UserManager->addUser($pseudo, $passwordHash, $email);
 						header("Location: /Login");
 						exit();
 					} else {

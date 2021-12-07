@@ -24,19 +24,19 @@
 	</head>
 
 	<body>
-		<?php if(isset($message)) { echo $message; } ?>
+		<?php if(isset($message)) { echo htmlspecialchars($message); } ?>
 		<header id="header">
 			<nav class="nav__container">
 				<ul class="menu">
 					<li class="menu__link"><a href="/">Accueil</a></li>
 					<li class="menu__link"><a href="/listPost">Articles</a></li>
-					<?php if(isset($linkAdmin)) echo $linkAdmin ?>
-					<li class="menu__link"><?php if(isset($linkLogin)) echo $linkLogin ?></li>
+					<?php if(isset($linkAdmin)) echo htmlspecialchars($linkAdmin) ?>
+					<li class="menu__link"><?php if(isset($linkLogin)) echo htmlspecialchars($linkLogin) ?></li>
 				</ul>
 			</nav>
 		</header>
 
-		<?= $content; ?>
+		<?= htmlspecialchars($content); ?>
 
 		<footer id="footer">
 

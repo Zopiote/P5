@@ -42,7 +42,8 @@
                 case "DELETE":
                     foreach($this->_route->getParam() as $param) {
 						if(isset($_GET[$param])) {
-							$this->_param[] = $_GET[$param];
+                            $getParam = $_GET[$param];
+							$this->_param[] = $getParam;
 						}
 					}
 			}

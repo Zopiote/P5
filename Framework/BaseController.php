@@ -19,7 +19,8 @@
 			if(file_exists("View/" . $this->_httpRequest->getRoute()->getController() . "/" . $filename . ".php")) {
 				ob_start();
 				extract($this->_param);
-				if (isset($_SESSION['message'])) {
+				$messageTemp = $_SESSION['message'];
+				if (isset($messageTemp)) {
 					$message = $_SESSION['message'];
 					unset($_SESSION['message']);
 				}
