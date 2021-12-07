@@ -9,10 +9,12 @@
 		private $_request = [];
 
         public function __construct($url = null, $method = null) {
+            $post = $_POST;
+
             $this->_url = (is_null($url))?$_SERVER['REQUEST_URI']:$url;
 			$this->_method = (is_null($method))?$_SERVER['REQUEST_METHOD']:$method;
 			$this->_param = array();
-			$this->_request = $_POST;
+			$this->_request = $post;
         }
 
         public function getUrl() {
@@ -42,7 +44,8 @@
                 case "DELETE":
                     foreach($this->_route->getParam() as $param) {
 						if(isset($_GET[$param])) {
-							$this->_param[] = $_GET[$param];
+                            $getParam = $_GET[$param];
+							$this->_param[] = $getParam;
 						}
 					}
 			}

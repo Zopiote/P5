@@ -36,7 +36,7 @@
 		public function editPost($id, $title, $chapo, $content, $fileName) {
 			$date = date("Y-m-d H:i:s");
 			
-			$req = $this->_bdd->prepare('UPDATE post SET title = :title, chapo = :chapo, content = :content, lastModificationDate = :lastModificationDate image = :image WHERE id = :id');
+			$req = $this->_bdd->prepare('UPDATE post SET title = :title, chapo = :chapo, content = :content, lastModificationDate = :lastModificationDate, image = :image WHERE id = :id');
 
 			$req->bindParam(':id', $id);
 			$req->bindParam(':title', $title);

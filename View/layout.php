@@ -1,12 +1,15 @@
 <?php
-	if(isset($_SESSION['Connected'])) {
+	$sessionConnected = $_SESSION['Connected'];
+	$sessionValid = $_SESSION['Valid'];
+
+	if(isset($sessionConnected)) {
 		$linkLogin = '<a href="/Logout">Deconnexion</a>';
 	} 
 	else {
 		$linkLogin = '<a href="/Login">Connexion </a>/<a href="/Registration"> Inscription</a>';
 	}
 
-	if(isset($_SESSION['Valid']) && $_SESSION['Valid'] == "1") {
+	if(isset($sessionValid) && $sessionValid == "1") {
 		$linkAdmin = '<li class="menu__link"><a href="/home/admin">Administration</a></li>';
 	}
 ?>
@@ -24,19 +27,19 @@
 	</head>
 
 	<body>
-		<?php if(isset($message)) { echo $message; } ?>
+		<?php if(isset($message)) { echo htmlspecialchars($message); } ?>
 		<header id="header">
 			<nav class="nav__container">
 				<ul class="menu">
 					<li class="menu__link"><a href="/">Accueil</a></li>
 					<li class="menu__link"><a href="/listPost">Articles</a></li>
-					<?php if(isset($linkAdmin)) echo $linkAdmin ?>
-					<li class="menu__link"><?php if(isset($linkLogin)) echo $linkLogin ?></li>
+					<?php if(isset($linkAdmin)) echo htmlspecialchars($linkAdmin) ?>
+					<li class="menu__link"><?php if(isset($linkLogin)) echo htmlspecialchars($linkLogin) ?></li>
 				</ul>
 			</nav>
 		</header>
 
-		<?= $content; ?>
+		<?= htmlspecialchars($content); ?>
 
 		<footer id="footer">
 
