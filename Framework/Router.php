@@ -24,7 +24,7 @@
 			}else if($numberRoute == 0) {
 				throw new NoRouteFoundException($httpRequest);
 			}else {
-				$valid = $_SESSION['Valid'];
+				$valid = $_SESSION['Valid']??false;
 				$route = new Route(array_shift($routeFound));
 				if(($route->getAdmin() && $valid??false) || !$route->getAdmin()) {
 					return $route;

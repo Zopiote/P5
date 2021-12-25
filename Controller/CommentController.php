@@ -15,7 +15,7 @@
 
 			$this->CommentManager->deleteComment($id);
 
-			$_SESSION['message'] = "<div class='alert alert-success'>Le commentaire a bien été supprimer.</div>";
+			$this->sessionManager->set('message', "<div class='alert alert-success'>Le commentaire a bien été supprimer.</div>");
 			header("Location: /admin/comment/list");
 			exit();
 		}
@@ -24,7 +24,7 @@
 
 			$this->CommentManager->validComment($id);
 
-			$_SESSION['message'] = "<div class='alert alert-success'>Le commentaire vient d'êtres validé.</div>";
+			$this->sessionManager->set('message', "<div class='alert alert-success'>Le commentaire vient d'êtres validé.</div>");
 			header("Location: /admin/comment/list");
 			exit();
 		}
@@ -33,7 +33,7 @@
 
 			$this->CommentManager->devalidComment($id);
 
-			$_SESSION['message'] = "<div class='alert alert-success'>Le commentaire vient d'êtres dévalidé.</div>";
+			$this->sessionManager->set('message', "<div class='alert alert-success'>Le commentaire vient d'êtres dévalidé.</div>");
 			header("Location: /admin/comment/list");
 			exit();
 		}

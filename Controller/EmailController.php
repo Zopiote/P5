@@ -31,9 +31,9 @@
                  
                     $mailer->send($message);
                  
-                    $_SESSION['message'] = "<div class='alert alert-success'>Le mail à bien été envoyer, vous serez contacter dans les plus bref délais.</div>";
+			        $this->sessionManager->set('message', "<div class='alert alert-success'>Le mail à bien été envoyer, vous serez contacter dans les plus bref délais.</div>");
                 } catch(Exception $e) {
-                    $_SESSION['message'] = "<div class='alert alert-danger'>".$e->getMessage()."</div>";
+                    $this->sessionManager->set('message', "<div class='alert alert-danger'>".$e->getMessage()."</div>");
                 }
             }
             

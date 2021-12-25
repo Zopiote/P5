@@ -2,6 +2,13 @@
 
 	class UserController extends BaseController {
 		
+		
+
+		public function __construct($httpRequest, $config)
+        {
+            parent::__construct($httpRequest, $config);
+        }
+
         public function Login() {
 			$this->View("login");
 		}
@@ -13,10 +20,10 @@
 			$user = $this->UserManager->getByMail($login);
 
 			if(password_verify($password, $user->password)) {
-						$_SESSION['Connected'] = $user->email;
-						$_SESSION['Valid'] = $user->getValid();
-						header("Location: /");
-						exit();
+				$this->sessionManager->set('Connected', $user->email);
+				$this->sessionManager->set('Valid', $user->getValid());
+				header("Location: /");
+				exit();
 			}else {
 				header("Location: /Login");
 			}
@@ -52,7 +59,7 @@
 			$form->handle($this->_httpRequest);
 			if($form->isSubmitted() && $form->isValid()) {
 				$requestMethode = $_SERVER["REQUEST_METHOD"];
-				$sessionToken = $_SESSION['_token'];
+				$sessionToken = $this->sessionManager->get('_token');
 
 				if(isset($requestMethode) && $requestMethode === "POST") {
 					if( $sessionToken === $_POST["_token"]) {
@@ -70,14 +77,14 @@
 				}
 			}
 
-			$_SESSION['_token'] = $tokenCsrf;
+			$this->sessionManager->set('_token', $tokenCsrf);
 
 			$this->addParam("form", $form);
 			$this->View("registration");
 		}
 
 		public function Logout() {
-			unset($_SESSION['Connected']);
+			$this->sessionManager->delete('Connected');
 			header("Location: /");
 		}
 
@@ -94,7 +101,7 @@
 			
 			$this->UserManager->validUser($id);
 
-			$_SESSION['message'] = "<div class='alert alert-success'>l'Utilisateur vient d'êtres validé.</div>";
+			$this->sessionManager->set('message', "<div class='alert alert-success'>l'Utilisateur vient d'êtres validé.</div>");
 			header("Location: /admin/user/list");
 			exit();
 		}
@@ -103,7 +110,7 @@
 			
 			$this->UserManager->devalidUser($id);
 
-			$_SESSION['message'] = "<div class='alert alert-success'>l'Utilisateur vient d'êtres dévalidé.</div>";
+			$this->sessionManager->set('message', "<div class='alert alert-success'>l'Utilisateur vient d'êtres dévalidé.</div>");
 			header("Location: /admin/user/list");
 			exit();
 		}

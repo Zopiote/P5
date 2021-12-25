@@ -80,7 +80,7 @@
 			if($form->isSubmitted() && $form->isValid()) {
 
 				if(isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] === "POST") {
-					$sessionToken = $_SESSION['_token'];
+					$sessionToken = $this->sessionManager->get('_token');
 
 					if($sessionToken === $_POST["_token"]) {
 
@@ -96,22 +96,22 @@
 							if($size <= $maxSize && $error == 0 && ($type == "image/jpg" || $type == "image/jpeg" || $type == "image/png")){
 								move_uploaded_file($tmpName, './Uploads/'.$fileName);
 							} else {
-								$_SESSION['message'] = "<div class='alert alert-danger'>Fichier non valide.</div>";
+								$this->sessionManager->set('message', "<div class='alert alert-danger'>Fichier non valide.</div>");
 								exit();
 							}
 						}
 						
 						$this->PostManager->addPost($form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value'], $_FILES['image']['name']);
-						$_SESSION['message'] = "<div class='alert alert-success'>Le post à bien été ajouter.</div>";
+						$this->sessionManager->set('message', "<div class='alert alert-success'>Le post à bien été ajouter.</div>");
 						header("Location: /admin/post/list");
 						exit();
 					} else {
-						$_SESSION['message'] = "<div class='alert alert-danger'>CSRF invalid</div>";
+						$this->sessionManager->set('message', "<div class='alert alert-danger'>CSRF invalid</div>");
 					}
 				}
 			}
 			
-			$_SESSION['_token'] = $tokenCsrf;
+			$this->sessionManager->set('_token', $tokenCsrf);
 
 			$this->addParam("form", $form);
 			$this->View("admin/postadd");
@@ -153,10 +153,12 @@
 					];
 			}], $post->getImage());
 			$form->handle($this->_httpRequest);
+
 			if($form->isSubmitted() && $form->isValid()) {
+				$sessionToken = $this->sessionManager->get('_token');
 
 				if($_SERVER["REQUEST_METHOD"] === "POST") {
-					if($_SESSION['_token'] === $_POST["_token"]) {
+					if($sessionToken === $_POST["_token"]) {
 
 						if(isset($_FILES['image']) && !$_FILES['image']['size'] == 0){
 							$tmpName = $_FILES['image']['tmp_name'];
@@ -171,7 +173,7 @@
 								unlink('./Uploads/'.$form->fields['image']['value']);
 								move_uploaded_file($tmpName, './Uploads/'.$fileName);
 							} else {
-								$_SESSION['message'] = "<div class='alert alert-danger'>Fichier non valide.</div>";
+								$this->sessionManager->set('message', "<div class='alert alert-danger'>Fichier non valide.</div>");
 								header("Location: /admin/post/edit?id=".$post->getId());
 								exit();
 							}
@@ -180,17 +182,17 @@
 						}
 
 						$this->PostManager->editPost($id, $form->fields['title']['value'], $form->fields['chapo']['value'], $form->fields['content']['value'], $fileName);
-						$_SESSION['message'] = "<div class='alert alert-success'>Le post à bien été modifier.</div>";
+						$this->sessionManager->set('message', "<div class='alert alert-success'>Le post à bien été modifier.</div>");
 						
 						header("Location: /admin/post/list");
 						exit();
 					} else {
-						$_SESSION['message'] = "<div class='alert alert-danger'>CSRF invalid</div>";
+						$this->sessionManager->set('message', "<div class='alert alert-danger'>CSRF invalid</div>");
 					}
 				}
 			}
 
-			$_SESSION['_token'] = $tokenCsrf;
+			$this->sessionManager->set('_token', $tokenCsrf);
 
 			$this->addParam("form", $form);
 			$this->View("admin/postedit");
@@ -200,7 +202,7 @@
 
 			$this->PostManager->deletePost($id);
 
-			$_SESSION['message'] = "<div class='alert alert-success'>Le post à bien été supprimer.</div>";
+			$this->sessionManager->set('message', "<div class='alert alert-success'>Le post à bien été supprimer.</div>");
 			header("Location: /admin/post/list");
 			exit();
 		}
