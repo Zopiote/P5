@@ -12,10 +12,10 @@
         <tbody>
             <?php foreach($users as $user){ ?>
                 <tr>
-                    <td><?= htmlspecialchars($user->getEmail()) ?></td>
-                    <td><?= htmlspecialchars($user->getValid()) ?></td>
+                    <td><?= EscapeManager::clean($user->getEmail()) ?></td>
+                    <td><?= EscapeManager::clean($user->getValid()) ?></td>
                     <td>
-                        <?php if($user->getValid() == "0"){ ?><a href="/admin/user/valid?id=<?= htmlspecialchars($user->getId()) ?>"><img class="table-img" src="../../Files/check_white_24dp.svg"></a><?php }else{ ?><a href="/admin/user/devalid?id=<?= htmlspecialchars($user->getId()) ?>"><img class="table-img" src="../../Files/clear_white_24dp.svg"></a><?php }; ?>
+                        <?php if($user->getValid() == "0"){ ?><a href="/admin/user/valid?id=<?= EscapeManager::clean($user->getId()) ?>"><img class="table-img" src="../../Files/check_white_24dp.svg"></a><?php }else{ ?><a href="/admin/user/devalid?id=<?= EscapeManager::clean($user->getId()) ?>"><img class="table-img" src="../../Files/clear_white_24dp.svg"></a><?php }; ?>
                     </td>
                 </tr>
             <?php } ?>
