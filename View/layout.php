@@ -5,13 +5,13 @@
 
 	if($sessionConnected) {
 		$linkLogin = '<a href="/Logout">Deconnexion</a>';
+
+		if($sessionValid && $sessionValid == "1") {
+			$linkAdmin = '<li class="menu__link"><a href="/home/admin">Administration</a></li>';
+		}
 	} 
 	else {
 		$linkLogin = '<a href="/Login">Connexion </a>/<a href="/Registration"> Inscription</a>';
-	}
-
-	if($sessionValid && $sessionValid == "1") {
-		$linkAdmin = '<li class="menu__link"><a href="/home/admin">Administration</a></li>';
 	}
 ?>
 
